@@ -1,0 +1,76 @@
+.emerald-navbar {
+    background: #0f172a; /* Deep Navy Dark */
+    border-bottom: 2px solid #10b981;
+    padding: 0.7rem 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.nav-spacer {
+    height: 80px;
+}
+
+/* Logo Styling */
+.logo-box {
+    background: #10b981;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: #0f172a;
+    font-size: 1.4rem;
+}
+
+.main-title {
+    color: #f8fafc;
+    font-weight: 800;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.dot { color: #10b981; }
+
+.sub-title {
+    color: #64748b;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+/* Nav Links */
+.nav-link {
+    color: #94a3b8 !important;
+    font-weight: 500;
+    padding: 0.5rem 1.2rem !important;
+    transition: 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #10b981 !important;
+}
+
+.nav-link i {
+    transition: 0.3s;
+}
+
+.nav-link:hover i {
+    transform: rotate(15deg);
+}
+
+/* Custom Emerald Button */
+.btn-emerald {
+    background-color: #10b981;
+    color: #0f172a;
+    font-weight: 700;
+    border: none;
+    transition: 0.3s;
+}
+
+.btn-emerald:hover {
+    background-color: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
+}
+
+.text-emerald { color: #10b981; }
