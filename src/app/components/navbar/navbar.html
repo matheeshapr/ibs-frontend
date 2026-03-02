@@ -1,38 +1,48 @@
-<nav class="navbar navbar-expand-lg fixed-top emerald-navbar">
-  <div class="container">
-    <a class="navbar-brand d-flex align-items-center" href="#">
-      <div class="logo-box me-3">
-        <i class="bi bi-person-check-fill"></i>
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top" 
+     style="background: #1a1c1e; border-bottom: 3px solid #dc2626; box-shadow: 0 10px 30px rgba(220, 38, 38, 0.1); padding: 18px 0;">
+  <div class="container-fluid px-5">
+    
+    <a class="navbar-brand d-flex align-items-center fw-bolder" href="#" style="letter-spacing: 2px;">
+      <div class="rounded-3 p-1 me-2 d-flex align-items-center justify-content-center shadow-lg" 
+           style="width: 38px; height: 38px; background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);">
+        <i class="bi bi-fire text-white fs-5"></i>
       </div>
-      <div class="brand-text">
-        <span class="main-title">IBS <span class="dot">.</span></span>
-        <span class="sub-title text-uppercase">Elite Scheduling</span>
-      </div>
+      <span class="text-white">IBS</span>
+      <span class="ms-1" style="color: #dc2626; text-shadow: 0 0 10px rgba(220, 38, 38, 0.3);">ELITE</span>
     </a>
 
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#ibsNavbar">
-      <span class="bi bi-grid-3x3-gap-fill text-emerald fs-1"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="ibsNavbar">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+    <div class="collapse navbar-collapse justify-content-center">
+      <ul class="navbar-nav gap-2">
         <li class="nav-item">
-          <a class="nav-link active" href="#"><i class="bi bi-speedometer2 me-2"></i>Dashboard</a>
+          <a class="nav-link active px-4 py-2 rounded-pill fw-bold border border-danger border-opacity-25" 
+             style="background: rgba(220, 38, 38, 0.1); color: #ef4444 !important;" href="#">
+             <i class="bi bi-house-door-fill me-2"></i>Home
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="bi bi-calendar4-week me-2"></i>Schedules</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><i class="bi bi-shield-lock me-2"></i>Admin</a>
+          <a class="nav-link px-4 py-2 text-white-50 hover-danger" href="#">
+             <i class="bi bi-layers-half me-2"></i>All Slots
+          </a>
         </li>
       </ul>
-      
-      <div class="ms-lg-4">
-        <button class="btn btn-emerald rounded-pill px-4 shadow">
-          Create Slot <i class="bi bi-plus-circle-dotted ms-2"></i>
-        </button>
+    </div>
+
+    <div class="d-flex align-items-center gap-4">
+      <div class="position-relative" style="cursor: pointer;">
+        <i class="bi bi-lightning-fill fs-5 text-white-50"></i>
+        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger rounded-circle border border-dark animate-pulse" 
+              style="width: 10px; height: 10px;"></span>
+      </div>
+
+      <div class="d-flex align-items-center gap-3 ps-1 pe-3 py-1 rounded-3" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(220, 38, 38, 0.2);">
+        <img src="https://ui-avatars.com/api/?name=Matheesha&background=dc2626&color=fff" 
+             class="rounded-3 shadow-sm" width="35" height="35" alt="Profile">
+        <div class="d-none d-lg-block text-start">
+          <p class="mb-0 text-white fw-bold" style="font-size: 0.8rem; line-height: 1.2;">Matheesha</p>
+          <small style="color: #991b1b; font-size: 0.65rem; font-weight: 800; text-transform: uppercase;">Lead Developer</small>
+        </div>
       </div>
     </div>
+
   </div>
 </nav>
-<div class="nav-spacer"></div>
