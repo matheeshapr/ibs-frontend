@@ -1,0 +1,35 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold">My Appointments</h2>
+    <button class="btn btn-outline-success rounded-pill px-4" routerLink="/">+ New Booking</button>
+  </div>
+
+  <div class="card rounded-4 overflow-hidden">
+    <div class="table-responsive">
+      <table class="table table-hover align-middle mb-0">
+        <thead class="bg-light">
+          <tr>
+            <th class="ps-4">Reference</th>
+            <th>Candidate</th>
+            <th>Date & Slot</th>
+            <th>Status</th>
+            <th class="text-end pe-4">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let booking of bookings">
+            <td class="ps-4 fw-medium text-success">#BK-00{{booking.id}}</td>
+            <td>Candidate ID: {{booking.candidateId}}</td>
+            <td>Slot ID: {{booking.slotId}}</td>
+            <td>
+              <span class="badge bg-success rounded-pill px-3">Confirmed</span>
+            </td>
+            <td class="text-end pe-4">
+              <button class="btn btn-sm btn-light border rounded-pill">View Details</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
