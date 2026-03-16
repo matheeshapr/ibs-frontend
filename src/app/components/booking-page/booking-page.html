@@ -1,0 +1,51 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card border-0 shadow-sm rounded-4 p-4">
+        <h2 class="fw-bold text-success mb-4">Select an Interview Slot</h2>
+        
+        <div class="row g-3">
+          @for (slot of slots; track slot.id) {
+            <div class="col-md-4">
+              <button 
+                class="btn w-100 py-3 rounded-3 border-2"
+                [ngClass]="{
+                  'btn-outline-success': !slot.isBooked && selectedSlotId !== slot.id,
+                  'btn-success text-white': selectedSlotId === slot.id,
+                  'btn-light text-muted': slot.isBooked
+                }"
+                [disabled]="slot.isBooked"
+                (click)="selectSlot(slot.id)">
+                
+                <div class="small fw-bold">{{ slot.startTime | date:'MMM d' }}</div>
+                <div class="fs-5">{{ slot.startTime | date:'shortTime' }}</div>
+                
+                @if (slot.isBooked) {
+                  <span class="badge bg-secondary mt-1">Booked</span>
+                }
+              </button>
+            </div>
+          } @empty {
+            <div class="text-center py-5">
+              <i class="bi bi-calendar-x fs-1 text-muted"></i>
+              <p class="mt-2 text-muted">No slots available for this interviewer.</p>
+            </div>
+          }
+        </div>
+
+        @if (selectedSlotId) {
+          <div class="mt-5 p-4 bg-light rounded-4 border animate__animated animate__fadeIn">
+            <h5 class="fw-bold mb-3">Complete Your Booking</h5>
+            <div class="mb-3">
+              <label class="form-label">Enter Your Candidate ID</label>
+              <input type="number" class="form-control form-control-lg rounded-3" [(ngModel)]="candidateId" placeholder="e.g. 1">
+            </div>
+            <button class="btn btn-success btn-lg w-100 rounded-pill shadow" (click)="confirmBooking()">
+              Confirm Booking Now
+            </button>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>
