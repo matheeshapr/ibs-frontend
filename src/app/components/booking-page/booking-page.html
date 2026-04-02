@@ -1,51 +1,104 @@
 <div class="container py-5">
   <div class="row justify-content-center">
-    <div class="col-lg-8">
-      <div class="card border-0 shadow-sm rounded-4 p-4">
-        <h2 class="fw-bold text-success mb-4">Select an Interview Slot</h2>
+    <div class="col-lg-10 col-xl-8">
+      
+      <button class="btn btn-link text-success text-decoration-none mb-3 p-0 fw-bold" routerLink="/">
+        <i class="bi bi-arrow-left"></i> Back to Interviewers
+      </button>
+
+      <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
         
-        <div class="row g-3">
-          @for (slot of slots; track slot.id) {
-            <div class="col-md-4">
-              <button 
-                class="btn w-100 py-3 rounded-3 border-2"
-                [ngClass]="{
-                  'btn-outline-success': !slot.isBooked && selectedSlotId !== slot.id,
-                  'btn-success text-white': selectedSlotId === slot.id,
-                  'btn-light text-muted': slot.isBooked
-                }"
-                [disabled]="slot.isBooked"
-                (click)="selectSlot(slot.id)">
-                
-                <div class="small fw-bold">{{ slot.startTime | date:'MMM d' }}</div>
-                <div class="fs-5">{{ slot.startTime | date:'shortTime' }}</div>
-                
-                @if (slot.isBooked) {
-                  <span class="badge bg-secondary mt-1">Booked</span>
-                }
-              </button>
-            </div>
-          } @empty {
-            <div class="text-center py-5">
-              <i class="bi bi-calendar-x fs-1 text-muted"></i>
-              <p class="mt-2 text-muted">No slots available for this interviewer.</p>
+        <div class="bg-success bg-gradient p-4 text-white text-center">
+          <i class="bi bi-calendar-check-fill display-4"></i>
+          <h2 class="fw-bold mt-2">Book Your Interview</h2>
+          <p class="mb-0 opacity-75">Secure your spot with our industry experts in just a few clicks.</p>
+        </div>
+
+        <div class="card-body p-4 p-md-5 bg-white">
+          <h5 class="fw-bold text-dark mb-4 d-flex align-items-center">
+            <i class="bi bi-clock-history text-success me-2"></i>
+            Available Time Slots
+          </h5>
+          
+          <div class="row g-3">
+            @for (slot of slots; track slot.id) {
+              <div class="col-sm-6 col-md-4">
+                <div 
+                  class="p-3 rounded-4 border border-2 text-center position-relative shadow-sm transition"
+                  [ngClass]="{
+                    'border-success bg-success-subtle shadow': selectedSlotId === slot.id,
+                    'border-light bg-light opacity-50': slot.isBooked,
+                    'border-light-subtle bg-white h-100': !slot.isBooked && selectedSlotId !== slot.id
+                  }"
+                  style="cursor: pointer; transition: 0.3s;"
+                  (click)="!slot.isBooked && selectSlot(slot.id)">
+                  
+                  <div class="fw-bold text-uppercase small text-muted mb-1" 
+                       [class.text-success]="selectedSlotId === slot.id">
+                    {{ slot.startTime | date:'EEEE' }}
+                  </div>
+                  <div class="fs-4 fw-bold mb-1" [class.text-success]="selectedSlotId === slot.id">
+                    {{ slot.startTime | date:'shortTime' }}
+                  </div>
+                  <div class="small text-muted border-top pt-1 mt-1">{{ slot.startTime | date:'MMM d, y' }}</div>
+
+                  @if (slot.isBooked) {
+                    <div class="position-absolute top-50 start-50 translate-middle w-100">
+                      <span class="badge rounded-pill bg-secondary px-3 py-2 shadow-sm">Reserved</span>
+                    </div>
+                  }
+
+                  @if (selectedSlotId === slot.id) {
+                    <div class="position-absolute top-0 end-0 p-2 text-success">
+                      <i class="bi bi-check-circle-fill"></i>
+                    </div>
+                  }
+                </div>
+              </div>
+            } @empty {
+              <div class="col-12 text-center py-5 border rounded-4 bg-light shadow-sm">
+                <i class="bi bi-calendar-x display-5 text-muted"></i>
+                <p class="mt-3 text-muted fw-bold">No slots available for this interviewer.</p>
+                <button class="btn btn-outline-success btn-sm rounded-pill" routerLink="/">Try Another</button>
+              </div>
+            }
+          </div>
+
+          @if (selectedSlotId) {
+            <div class="mt-5 pt-4 border-top">
+              <div class="p-4 rounded-4 shadow-sm border bg-light">
+                <div class="d-flex align-items-center mb-3 text-success">
+                  <i class="bi bi-person-badge-fill fs-4 me-2"></i>
+                  <h5 class="fw-bold mb-0">Confirm Your Identity</h5>
+                </div>
+
+                <div class="row align-items-end g-3">
+                  <div class="col-md-8">
+                    <label class="form-label small fw-bold text-uppercase text-muted ps-1">Your Candidate ID</label>
+                    <div class="input-group border rounded-pill overflow-hidden bg-white shadow-sm">
+                      <span class="input-group-text bg-white border-0 ps-3">
+                        <i class="bi bi-hash text-success"></i>
+                      </span>
+                      <input type="number" class="form-control border-0 shadow-none py-2 px-3" 
+                             [(ngModel)]="candidateId" placeholder="Enter ID (e.g. 1)">
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <button class="btn btn-success btn-lg w-100 rounded-pill shadow-sm fw-bold py-2" 
+                            [disabled]="!candidateId" (click)="confirmBooking()">
+                      Confirm Booking <i class="bi bi-check2-all ms-1"></i>
+                    </button>
+                  </div>
+                </div>
+                <p class="small text-muted mt-3 mb-0 text-center">
+                  <i class="bi bi-info-circle me-1"></i> Booking will be processed instantly and confirmed.
+                </p>
+              </div>
             </div>
           }
         </div>
-
-        @if (selectedSlotId) {
-          <div class="mt-5 p-4 bg-light rounded-4 border animate__animated animate__fadeIn">
-            <h5 class="fw-bold mb-3">Complete Your Booking</h5>
-            <div class="mb-3">
-              <label class="form-label">Enter Your Candidate ID</label>
-              <input type="number" class="form-control form-control-lg rounded-3" [(ngModel)]="candidateId" placeholder="e.g. 1">
-            </div>
-            <button class="btn btn-success btn-lg w-100 rounded-pill shadow" (click)="confirmBooking()">
-              Confirm Booking Now
-            </button>
-          </div>
-        }
       </div>
+
     </div>
   </div>
 </div>
