@@ -1,26 +1,31 @@
+/* Google Font Import (Poppins) - Premium පෙනුම සඳහා */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 body {
-  background-color: #f8f9fa;
   font-family: 'Poppins', sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  /* Premium Light Green & White Gradient Background */
+  background: linear-gradient(135deg, #e0f2f1 0%, #ffffff 50%, #f1f8e9 100%);
+  background-attachment: fixed; /* Background එක scroll වෙද්දී එක තැන තියෙන්න */
 }
 
-.page-container {
-  min-height: 90vh;
-  padding-top: 2rem;
+/* Glassmorphism Effect සඳහා Generic Class එකක් */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.7); /* සුදු පාට භාගෙට විනිවිද පෙනෙන */
+  backdrop-filter: blur(10px); /* පිටුපස තියෙන දේ blur කිරීමේ effect එක */
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2); /* වීදුරු වල දාරය වැනි ඉරක් */
+  box-shadow: 0 8px 32px 0 rgba(16, 185, 129, 0.1); /* මෘදු Shadow එකක් */
 }
 
-
-.card {
-  border: none !important;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
-  transition: all 0.3s ease;
-}
-
-.card:hover {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
-}
-
-
+/* Bootstrap Buttons Customize කිරීම (Emerald Green Theme) */
 .btn-success {
-  background: linear-gradient(45deg, #10b981, #059669) !important;
-  border: none !important;
+  background-color: #10b981 !important;
+  border-color: #10b981 !important;
+}
+
+.btn-success:hover {
+  background-color: #059669 ;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
 }
