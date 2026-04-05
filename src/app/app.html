@@ -1,5 +1,7 @@
-<app-navbar></app-navbar>
+@if (showNavbar) {
+  <app-navbar></app-navbar>
+}
 
-<div class="page-container">
+<main class="container-fluid p-0">
   <router-outlet></router-outlet>
-</div>
+</main>
