@@ -1,0 +1,40 @@
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+  <div class="card border-0 rounded-5 glass-effect p-5 shadow-lg animate__animated animate__zoomIn" style="max-width: 420px; width: 100%;">
+    
+    <div class="text-center mb-5">
+      <div class="bg-success bg-opacity-10 d-inline-block p-4 rounded-circle mb-3 shadow-sm">
+        <i class="bi bi-shield-lock-fill display-5 text-success"></i>
+      </div>
+      <h2 class="fw-bold text-dark">Welcome Back</h2>
+      <p class="text-muted small">Please enter your credentials to login</p>
+    </div>
+
+    <form (ngSubmit)="onLogin()">
+      <div class="mb-4">
+        <label class="form-label small fw-bold text-muted ps-2">EMAIL ADDRESS</label>
+        <div class="input-group border rounded-pill overflow-hidden bg-white shadow-sm">
+          <span class="input-group-text bg-white border-0 ps-3"><i class="bi bi-envelope text-success"></i></span>
+          <input type="email" class="form-control border-0 shadow-none py-2" [(ngModel)]="loginData.email" name="email" placeholder="name@example.com">
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label small fw-bold text-muted ps-2">PASSWORD</label>
+        <div class="input-group border rounded-pill overflow-hidden bg-white shadow-sm">
+          <span class="input-group-text bg-white border-0 ps-3"><i class="bi bi-key text-success"></i></span>
+          <input type="password" class="form-control border-0 shadow-none py-2" [(ngModel)]="loginData.password" name="password" placeholder="••••••••">
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success w-100 rounded-pill py-3 fw-bold shadow-sm transition-all hover-grow mt-2">
+        LOGIN NOW <i class="bi bi-arrow-right-short fs-4 ms-1"></i>
+      </button>
+    </form>
+    
+    <div class="text-center mt-5">
+      <span class="small text-muted">Don't have an account? 
+        <a routerLink="/register" class="text-success fw-bold text-decoration-none">Create One</a>
+      </span>
+    </div>
+  </div>
+</div>
