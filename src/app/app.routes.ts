@@ -9,6 +9,8 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'interviewers', component: InterviewerListComponent },
   { path: 'booking/:id', component: BookingPageComponent },
-  { path: 'my-bookings', component: MyBookingsComponent }, 
+  { path: 'my-bookings', component: MyBookingsComponent },
+  { path: 'admin-dashboard', component: InterviewerListComponent },
+  { path: 'interviewer-dashboard', component: InterviewerListComponent },
   { path: '**', redirectTo: 'login' } 
 ];
